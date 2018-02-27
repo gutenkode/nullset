@@ -1,0 +1,85 @@
+tileset/foundation		tileset_brick
+tileset/foundation_NRM 		tileset_brick_NRM
+tileset/shade			tileset_shade
+
+ui/title			ui_title
+ui/titlebg			ui_titlebg
+ui/scalablemenu			ui_scalablemenu
+ui/scalablemenu_blur		ui_scalablemenu_blur
+ui/arrow_cursor			ui_cursor
+ui/square_cursor		ui_square_cursor
+ui/statbars			ui_statbars
+
+ui/battle_bg/red		ui_bg_red
+ui/battle_bg/grayscale		ui_bg_grayscale
+#ui/battle_bg/circle		ui_bg_circle
+ui/battle_floor/tile1		ui_floor_tile1
+
+font/misterpixel/misterpixel	font_ui
+font/6px/6px			font_6px
+font/terminal/terminal		font_terminal
+font/terminal/terminal_inv	font_terminal_inv
+
+entity/env/solidsnake		entity_player
+
+entity/enemy_field/slime	entity_slime
+entity/enemy_field/noise	entity_noise
+entity/enemy_field/boss		entity_boss
+
+entity/enemy_battle/slime	entity_battle_slime
+entity/enemy_battle/noise	entity_battle_noise
+entity/enemy_battle/boss	entity_battle_boss
+
+entity/env/keyDoor		entity_keyDoor
+entity/env/elevator		entity_elevator
+entity/env/toggleButton		entity_toggleButton
+entity/env/togglePlatform	entity_togglePlatform
+entity/env/laserGrid		entity_laserGrid
+entity/env/water		entity_water
+entity/env/terminal		entity_terminal
+entity/env/solidPlatform	entity_solidPlatform
+
+entity/obj/crate		obj_crate
+entity/obj/barrel		obj_barrel
+entity/obj/fluorescent		obj_fluorescent
+entity/obj/ceiling		obj_ceiling
+entity/obj/chain		obj_chain
+entity/obj/pipe			obj_pipe
+
+#color/test		color_test
+#color/white		color_white
+
+#post/noise		post_noise
+post/vignette		post_vignette
+post/scanlines		post_scanlines
+
+item/drink		item_drink
+item/grenade		item_grenade
+item/hypo		item_hypo
+item/potion		item_potion
+item/keycard1		item_keycard1
+item/keycard2		item_keycard2
+item/keycard3		item_keycard3
+item/keycard4		item_keycard4
+
+skill/fire		skill_fire
+skill/bolt		skill_bolt
+skill/dark		skill_dark
+skill/heal		skill_heal
+skill/ice		skill_ice
+skill/poison		skill_poison
+#skill/defup		skill_defup
+skill/mod		skill_mod
+
+talk/boss		talk_boss
+talk/none		talk_none
+talk/tutorial		talk_tutorial
+
+status/poison		status_poison
+status/fatigue		status_fatigue
+#status/defup		status_defup
+
+anim/ice		anim_ice
+anim/fire		anim_fire
+anim/elec_2		anim_elec
+anim/status		anim_status

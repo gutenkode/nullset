@@ -1,0 +1,10 @@
+# comments start with a pound sign
+# format: comma-separated strings
+# level number (starting at 1, cannot skip numbers, but can be in any order)
+# level subfolder for map files
+# name of first map
+# player's x/y start position in that map, as ints
+2,_mylevel2,1a,2,3
+1,_mylevel1,1a_start,2,5
+3,old,newStart,2,5
+#1i_puzzle2,2,5
