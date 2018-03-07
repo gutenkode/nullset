@@ -1,0 +1,79 @@
+{
+    "ITEM_KEYCARD": {
+        "itemName": "Lv.1 Keycard",
+        "description": "A keycard with the text\n'Level 1' written on it.",
+        "spriteName": "item_keycard1",
+        "itemType": "KEY",
+        "ingameEffect": "NONE",
+        "battleEffect": "NONE"
+    },
+    "ITEM_KEYCARD2": {
+        "itemName": "Lv.2 Keycard",
+        "description": "A keycard with the text\n'Level 2' written on it.",
+        "spriteName": "item_keycard2",
+        "itemType": "KEY",
+        "ingameEffect": "NONE",
+        "battleEffect": "NONE"
+    },
+    "ITEM_KEYCARD3": {
+        "itemName": "Lv.3 Keycard",
+        "description": "A keycard with the text\n'Level 3' written on it.",
+        "spriteName": "item_keycard3",
+        "itemType": "KEY",
+        "ingameEffect": "NONE",
+        "battleEffect": "NONE"
+    },
+    "ITEM_KEYCARD4": {
+        "itemName": "Lv.4 Keycard",
+        "description": "A keycard with the text\n'Level 4' written on it.",
+        "spriteName": "item_keycard4",
+        "itemType": "KEY",
+        "ingameEffect": "NONE",
+        "battleEffect": "NONE"
+    },
+    "ITEM_HP_HEAL": {
+        "itemName": "Small Potion",
+        "description": "A small vial of red liquid.\nRestores a little health.",
+        "spriteName": "item_potion",
+        "itemType": "CONSUMABLE",
+        "ingameEffect": "HEAL_HP",
+        "battleEffect": "HEAL_HP",
+        "attribs": [20]
+    },
+    "ITEM_MP_HEAL": {
+        "itemName": "Mana Hypo",
+        "description": "...",
+        "spriteName": "item_syringe",
+        "itemType": "CONSUMABLE",
+        "ingameEffect": "HEAL_MP",
+        "battleEffect": "HEAL_MP",
+        "attribs": [40]
+    },
+    "ITEM_SP_HEAL": {
+        "itemName": "Energy Drink",
+        "description": "...",
+        "spriteName": "item_drink",
+        "itemType": "CONSUMABLE",
+        "ingameEffect": "HEAL_SP",
+        "battleEffect": "HEAL_SP",
+        "attribs": [80]
+    },
+    "ITEM_BOMB": {
+        "itemName": "Grenade",
+        "description": "...",
+        "spriteName": "item_grenade",
+        "itemType": "CONSUMABLE",
+        "ingameEffect": "NONE",
+        "battleEffect": "ATTACK",
+        "attribs": [30]
+    },
+    "ITEM_BUFF_ATK": {
+        "itemName": "Adrenaline Hypo",
+        "description": "...",
+        "spriteName": "item_hypo",
+        "itemType": "CONSUMABLE",
+        "ingameEffect": "NONE",
+        "battleEffect": "BUFF_ATK",
+        "attribs": [1]
+    }
+}

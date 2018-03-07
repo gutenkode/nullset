@@ -4,8 +4,7 @@ import nullset.ui.UIHandler;
 
 public class TextDialogBehavior extends DialogBehavior {
 
-    public TextDialogBehavior(UIHandler h, String s) {
-        super(h);
+    public TextDialogBehavior(String s) {
         text = s;
     }
 

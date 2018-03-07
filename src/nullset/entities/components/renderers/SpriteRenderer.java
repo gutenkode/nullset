@@ -22,9 +22,18 @@ public class SpriteRenderer extends Renderer {
     public void render(TransformationMatrix matrix) {
         bindUniforms();
         matrix.setIdentity();
+
         matrix.translate(entity.getPos().x,entity.getPos().y,entity.getPos().z);
         matrix.translate(entity.getSize().x/2,entity.getSize().y/2,entity.getSize().z/2);
+        matrix.translate(modelPos.x,modelPos.y,modelPos.z);
+
+        matrix.rotate(-modelRot.z, 0,0,1);
+        matrix.rotate(-modelRot.y, 0,1,0);
+        matrix.rotate(-modelRot.x, 1,0,0);
+
         matrix.scale(entity.getSize().x/2,-entity.getSize().y/2,entity.getSize().z/2);
+        matrix.scale(modelScale.x,modelScale.y,modelScale.z);
+
         matrix.bind();
         tex.bind();
         MeshMap.render("quad");

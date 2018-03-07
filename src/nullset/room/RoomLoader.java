@@ -1,4 +1,4 @@
-package nullset.rooms;
+package nullset.room;
 
 import mote4.scenegraph.Window;
 import mote4.util.FileIO;

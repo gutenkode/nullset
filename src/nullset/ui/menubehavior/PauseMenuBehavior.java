@@ -1,11 +1,8 @@
 package nullset.ui.menubehavior;
 
-import nullset.ui.UIHandler;
-
 public class PauseMenuBehavior extends MenuBehavior {
 
-    public PauseMenuBehavior(UIHandler h) {
-        super(h);
+    public PauseMenuBehavior() {
         title = "Paused";
         elements = new String[] {"Inventory", "Skills", "Options", "Back"};
     }
@@ -14,13 +11,13 @@ public class PauseMenuBehavior extends MenuBehavior {
     public void onAction() {
         switch (elements[cursorPos]) {
             case "Inventory":
-                handler.openMenu(new InventoryMenuBehavior(handler));
+                handler.openMenu(new InventoryMenuBehavior());
                 break;
             case "Skills":
                 //
                 break;
             case "Options":
-            	handler.openMenu(new OptionsMenuBehavior(handler));
+            	handler.openMenu(new OptionsMenuBehavior());
             	break;
             case "Back":
                 onClose();

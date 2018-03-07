@@ -11,11 +11,11 @@ public abstract class DialogBehavior {
     protected String text;
     protected UIHandler handler;
 
-    public DialogBehavior(UIHandler h) {
-        handler = h;
-    }
-
     public String getText() { return text; }
 
     public abstract void onAction();
+
+    public final void setUIHandler(UIHandler h) {
+        handler = h;
+    }
 }

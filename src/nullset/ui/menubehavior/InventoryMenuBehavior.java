@@ -1,6 +1,6 @@
 package nullset.ui.menubehavior;
 
-import nullset.rpg.InventoryItem;
+import nullset.rpg.Item;
 import nullset.rpg.PlayerInventory;
 import nullset.ui.UIHandler;
 
@@ -9,15 +9,14 @@ import java.util.stream.Collectors;
 
 public class InventoryMenuBehavior extends MenuBehavior {
 
-    public InventoryMenuBehavior(UIHandler h) {
-        super(h);
+    public InventoryMenuBehavior() {
         title = "Inventory";
 
         // TODO this is probably a trash way of producing a list of names for items, but
-        List<InventoryItem> items = PlayerInventory.getInstance().getItems();
+        List<Item> items = PlayerInventory.getInstance().getItems();
         elements = new String[items.size()+1];
         int ind = 0;
-        for (String s : items.stream().map(i -> "x1 "+i.PRETTY_NAME).collect(Collectors.toList())) {
+        for (String s : items.stream().map(i -> "x1 "+i.itemName).collect(Collectors.toList())) {
             elements[ind] = s;
             ind++;
         }

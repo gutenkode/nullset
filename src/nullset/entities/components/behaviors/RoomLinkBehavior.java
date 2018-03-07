@@ -1,7 +1,7 @@
 package nullset.entities.components.behaviors;
 
 import nullset.entities.Entity;
-import nullset.rooms.Room;
+import nullset.room.Room;
 
 public class RoomLinkBehavior extends Behavior {
 

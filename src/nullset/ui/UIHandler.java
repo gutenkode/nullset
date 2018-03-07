@@ -34,8 +34,6 @@ public class UIHandler {
     public UIHandler() {
         currentState = INGAME_UNPAUSED;
         menuElements = new Stack<>();
-        openMenu(new PauseMenuBehavior(this));
-        openDialog(new TextDialogBehavior(this, "Hello, World!\nThis line is longer than the first one.\nThis one is short."));
     }
 
     public void update() {
@@ -62,6 +60,7 @@ public class UIHandler {
     }
 
     public void openMenu(MenuBehavior b) {
+        b.setUIHandler(this);
         MenuElement renderer = new MenuElement(b);
         menuElements.push(renderer);
     }

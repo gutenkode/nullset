@@ -27,7 +27,7 @@ RoomLink,0,4,1,1,2,1e_laserwall
 StaticObject,4,4,Chain,2
 StaticObject,4,4,Chain,-2
 StaticObject,1,6,Chain,3
-Enemy,3,4,SLIME
+Enemy,3,4,ENEMY_SLIME
 ScriptTrigger,3,2,3,1,enemyTutorial
 KeyDoor,5,2,0,1
 Terminal,4,1

@@ -7,6 +7,11 @@ import org.joml.Vector3f;
 
 public abstract class Renderer extends Component {
 
+    public Vector3f
+            modelPos = new Vector3f(0),
+            modelScale = new Vector3f(1),
+            modelRot = new Vector3f(0);
+
     abstract public void render(TransformationMatrix matrix);
     abstract public void renderShadow(TransformationMatrix matrix);
 

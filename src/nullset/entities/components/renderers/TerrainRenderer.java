@@ -6,8 +6,8 @@ import mote4.util.shader.ShaderMap;
 import mote4.util.texture.Texture;
 import mote4.util.vertex.mesh.Mesh;
 import mote4.util.vertex.mesh.MeshMap;
-import nullset.rooms.TerrainMeshBuilder;
-import nullset.rooms.TerrainData;
+import nullset.room.TerrainMeshBuilder;
+import nullset.room.TerrainData;
 
 public class TerrainRenderer extends Renderer {
 
@@ -30,9 +30,11 @@ public class TerrainRenderer extends Renderer {
         Transform.rebindCurrentTransform();
         //bindUniforms();
         matrix.setIdentity();
+
         matrix.translate(0,0,0);
         matrix.rotate((float)Math.PI/2,1,0,0);
         matrix.scale(1,1,-1);
+
         matrix.bind();
         tex.bind();
         mesh.render();

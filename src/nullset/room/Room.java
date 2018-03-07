@@ -1,4 +1,4 @@
-package nullset.rooms;
+package nullset.room;
 
 import mote4.util.matrix.Transform;
 import mote4.util.shader.ShaderMap;
@@ -18,20 +18,23 @@ import static org.lwjgl.opengl.GL11.*;
 
 public class Room {
 
-    private static final String START_ROOM = "1a_start";
     private static Room currentRoom;
     private static HashMap<String, Room> loadedRooms = new HashMap<>();
 
     public static Room getCurrent() { // TODO don't use a structure like this, could cause problems
         if (currentRoom == null) {
-            currentRoom = new Room(START_ROOM, new GlobalState());
-            loadedRooms.put(START_ROOM, currentRoom);
+            throw new IllegalStateException();
+            //currentRoom = new Room(START_ROOM, new GlobalState());
+            //loadedRooms.put(START_ROOM, currentRoom);
         }
         return currentRoom;
     }
     public static Room loadNewRoom(String name) {
         if (!loadedRooms.containsKey(name)) {
-            loadedRooms.put(name, new Room(name, currentRoom.STATE));
+            if (currentRoom == null)
+                loadedRooms.put(name, new Room(name, new GlobalState()));
+            else
+                loadedRooms.put(name, new Room(name, currentRoom.STATE));
         }
         currentRoom = loadedRooms.get(name);
 
@@ -120,6 +123,14 @@ public class Room {
         return null;
     }
 
+    public void removeEntity(Entity e) {
+        for (Entity e1 : entities)
+            if (e1 == e) {
+                entities.remove(e);
+                return;
+            }
+        throw new IllegalArgumentException("Specified entity is not in this room.");
+    }
     public Entity moveEntityTo(Entity e, Room rm) {
         for (Entity e1 : entities)
             if (e1 == e) {
@@ -131,7 +142,7 @@ public class Room {
         throw new IllegalArgumentException("Specified entity is not in this room.");
     }
 
-    public void setView(TransformationMatrix matrix) {
+    public void applyViewPosition(TransformationMatrix matrix) {
         float panLeftRight = (-.5f+cameraPos.x/TERRAIN.width) *.5f;
         float panUpDown = (-cameraPos.y) *.04f;
         matrix.rotate(panUpDown, 1,0,0);

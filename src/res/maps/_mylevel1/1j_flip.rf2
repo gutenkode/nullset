@@ -34,6 +34,6 @@ SolidPlatform,3,3,10
 SolidPlatform,4,3,10
 SolidPlatform,5,3,10
 SolidPlatform,6,3,10
-ItemPickup,7,2,MANA_HYPO
-ItemPickup,7,4,SKILL_DARK
+ItemPickup,7,2,ITEM_MP_HEAL
+ItemPickup,7,4,SKILL_WEAK_DARK
 </entitydata>

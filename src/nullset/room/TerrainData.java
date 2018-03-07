@@ -1,4 +1,4 @@
-package nullset.rooms;
+package nullset.room;
 
 public class TerrainData {
 

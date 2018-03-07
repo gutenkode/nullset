@@ -13,8 +13,7 @@ public abstract class MenuBehavior {
     protected String[] elements;
     protected UIHandler handler;
 
-    public MenuBehavior(UIHandler h) {
-        handler = h;
+    public MenuBehavior() {
         cursorPos = 0;
         onHighlight(cursorPos);
     }
@@ -74,5 +73,9 @@ public abstract class MenuBehavior {
 
     public void onClose() {
         handler.closeMenu(this);
+    }
+
+    public final void setUIHandler(UIHandler h) {
+        handler = h;
     }
 }

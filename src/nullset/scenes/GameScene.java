@@ -2,7 +2,7 @@ package nullset.scenes;
 
 import mote4.scenegraph.Scene;
 import mote4.util.matrix.Transform;
-import nullset.rooms.Room;
+import nullset.room.Room;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -28,7 +28,7 @@ public class GameScene implements Scene {
         trans.view.translate(0,0,-5); // pull camera back
         trans.view.rotate(0.7f, 1,0,0); // angle camera down slightly (default view is head-on)
         //trans.view.rotate(.3f*(float)Math.sin(time*.6), 0,1,0); // pan back and forth
-        Room.getCurrent().setView(trans.view);
+        Room.getCurrent().applyViewPosition(trans.view);
 
         Room.getCurrent().render(trans);
         Room.getCurrent().renderColliders(trans);

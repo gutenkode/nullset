@@ -1,16 +1,14 @@
 package nullset.entities;
 
 import nullset.entities.components.behaviors.*;
-import nullset.entities.components.colliders.BoxCollider;
-import nullset.entities.components.colliders.Collider;
-import nullset.entities.components.colliders.EmptyCollider;
-import nullset.entities.components.colliders.TerrainCollider;
+import nullset.entities.components.colliders.*;
 import nullset.entities.components.renderers.*;
 import nullset.main.LazyList;
 import mote4.util.texture.TextureMap;
 import mote4.util.vertex.mesh.MeshMap;
-import nullset.rooms.Room;
-import nullset.rooms.TerrainData;
+import nullset.room.Room;
+import nullset.room.TerrainData;
+import nullset.rpg.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,10 +78,11 @@ public class EntityFactory {
                 x = Integer.parseInt(tokens[1]);
                 z = Integer.parseInt(tokens[2]);
                 String enemyName = tokens[3];
+                Enemy enemy = Enemy.valueOf(enemyName);
                 e = new Entity(room,
-                        new EmptyBehavior(), // TODO make EnemyBehavior that takes the name parameter
+                        new EnemyBehavior(enemy),
                         new BoxCollider(),
-                        new SpriteRenderer(TextureMap.get("entity_slime")));
+                        new SpriteRenderer(TextureMap.get(enemy.spriteName)));
                 e.getPos().set(x,data.heightAt(x,z),z);
                 ((BoxCollider)e.collider).setSolid(false);
                 return e;
@@ -167,10 +166,44 @@ public class EntityFactory {
                 e.getSize().set(data.width,1,data.height);
                 return e;
 
-            case "KeyDoor": // x,z,doorLevel,rotation
-            case "ScriptTrigger": // x,z,width,height,scriptName
-            case "LaserGrid": // x,z,width
             case "ItemPickup": // x,z,itemName
+                x = Integer.parseInt(tokens[1]);
+                z = Integer.parseInt(tokens[2]);
+                String itemName = tokens[3];
+                Pickup pickup;
+                if (itemName.startsWith("ITEM_"))
+                    pickup = Item.valueOf(itemName);
+                else if (itemName.startsWith("SKILL_"))
+                    pickup = Skill.valueOf(itemName);
+                else if (itemName.startsWith("MOD_"))
+                    pickup = Mod.valueOf(itemName);
+                else
+                    throw new IllegalArgumentException("Invalid pickup ID: "+itemName);
+                e = new Entity(room,
+                        new ItemPickupBehavior(pickup),
+                        new BoxCollider(),
+                        new SpriteRenderer(TextureMap.get(pickup.getSprite()),1,1));
+                e.getPos().set(x,data.heightAt(x,z),z);
+                ((BoxCollider)e.collider).setSolid(false);
+                return e;
+
+            case "ScriptTrigger": // x,z,width,height,scriptName
+                x = Integer.parseInt(tokens[1]);
+                z = Integer.parseInt(tokens[2]);
+                width = Integer.parseInt(tokens[3]);
+                height = Integer.parseInt(tokens[4]);
+                String scriptName = tokens[5];
+                e = new Entity(room,
+                        new EmptyBehavior(), // TODO code a script behavior
+                        new BoxCollider(),
+                        new EmptyRenderer());
+                e.getPos().set(x,data.heightAt(x,z),z);
+                e.getSize().set(width,1,height);
+                ((BoxCollider)e.collider).setSolid(false);
+                return e;
+
+            case "KeyDoor": // x,z,doorLevel,rotation
+            case "LaserGrid": // x,z,width
                 System.err.println("Unimplemented entity: "+s);
                 return null;
 

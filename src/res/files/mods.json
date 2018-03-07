@@ -1,0 +1,25 @@
+{
+    "MOD_DAMAGE_BOOST": {
+        "modName": "Damage Boost",
+        "description": "Boots the base power of a skill."
+    },
+    "MOD_EFFICIENCY": {
+        "modName": "Efficiency",
+        "description": "Lowers the base cost of a skill."},
+    "MOD_OVERCLOCK": {
+        "modName": "Overclock",
+        "description": "Doubles the base power\nAND cost of a skill."
+    },
+    "MOD_BESERK": {
+        "modName": "Beserk",
+        "description": "Greatly increases the crit rate\nof a skill, but lowers accuracy."
+    },
+    "MOD_ACCURACY": {
+        "modName": "Accuracy",
+        "description": "Boosts the base accuracy of a skill."
+    },
+    "MOD_MULTI_TARGET": {
+        "modName": "Multi-Target",
+        "description": "Makes a skill target all enemies at once.\nAccuracy is reduced and cost is increased."
+    }
+}

@@ -1,7 +1,7 @@
 package nullset.entities.components.colliders;
 
 import org.joml.Vector3f;
-import nullset.rooms.TerrainData;
+import nullset.room.TerrainData;
 
 public class TerrainCollider extends Collider {
 

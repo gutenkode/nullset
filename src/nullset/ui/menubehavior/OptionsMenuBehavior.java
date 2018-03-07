@@ -1,11 +1,8 @@
 package nullset.ui.menubehavior;
 
-import nullset.ui.UIHandler;
-
 public class OptionsMenuBehavior extends MenuBehavior {
 
-    public OptionsMenuBehavior(UIHandler h) {
-        super(h);
+    public OptionsMenuBehavior() {
         title = "Options";
         elements = new String[] {"Back"};
     }

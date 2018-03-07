@@ -1,10 +1,9 @@
-package nullset.rooms;
+package nullset.room;
 
 import mote4.util.vertex.builder.Attribute;
 import mote4.util.vertex.builder.ModernMeshBuilder;
 import mote4.util.vertex.mesh.Mesh;
 
-import static nullset.main.Vars.*;
 import static org.lwjgl.opengl.GL11.GL_TRIANGLES;
 
 public class TerrainMeshBuilder {
@@ -273,7 +272,7 @@ public class TerrainMeshBuilder {
      * @param attrib The Attribute to add to.
      * @param x X coordinate of the tile.
      * @param x X coordinate of the tile.
-     * @param type The type of tile shade is being applied to.
+     * @param type The itemType of tile shade is being applied to.
      *             0: Floor tile
      *             1,2,3: Left,front,right wall tile
      *             4: Force full lower-wall shade

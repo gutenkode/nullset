@@ -4,7 +4,7 @@ import nullset.entities.components.behaviors.Behavior;
 import nullset.entities.components.colliders.Collider;
 import nullset.entities.components.renderers.Renderer;
 import org.joml.Vector3f;
-import nullset.rooms.Room;
+import nullset.room.Room;
 
 import java.util.Optional;
 
