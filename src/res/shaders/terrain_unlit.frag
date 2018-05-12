@@ -18,9 +18,9 @@ void fadeEdges()
 {
 	const vec3 fade = vec3(0.4, 0.0, 0.0);
 	FragColor.rgb = mix(fade, FragColor.rgb, smoothstep(0,.8, vertexPos.x));
-	FragColor.rgb = mix(fade, FragColor.rgb, smoothstep(0,.8, vertexPos.y));
+	FragColor.rgb = mix(fade, FragColor.rgb, smoothstep(0,.8, vertexPos.z));
 	FragColor.rgb = mix(fade, FragColor.rgb, smoothstep(0,.8, mapSize.x-vertexPos.x));
-	FragColor.rgb = mix(fade, FragColor.rgb, smoothstep(0,.25, mapSize.y-vertexPos.y));
+	FragColor.rgb = mix(fade, FragColor.rgb, smoothstep(0,.25, mapSize.y-vertexPos.z));
 }
 
 void main()
@@ -28,8 +28,8 @@ void main()
 	FragColor = texture(tex_diffuse, texCoord); // color texture component
     FragColor.rgb *= texture(tex_shade, shadeCoord).rgb; // shade texture component
 
-	//fadeEdges();
+	fadeEdges();
 
-	DOFValue = vec4(0,0,0,1);
 	FragColor = colorMult * (colorAdd + FragColor);
+	DOFValue = vec4(0,0,0,1);
 }

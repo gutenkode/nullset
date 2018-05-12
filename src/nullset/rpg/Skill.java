@@ -1,6 +1,8 @@
 package nullset.rpg;
 
+import nullset.battle.fighters.Fighter;
 import nullset.main.Vars;
+import nullset.scenes.UIScene;
 import org.json.JSONObject;
 
 import static nullset.rpg.AttribEnums.*;
@@ -23,6 +25,7 @@ public enum Skill implements Pickup {
     public final String animation;
     public final Element element;
     public final int power, accuracy, cost, critrate;
+
     Skill() {
         JSONObject json = Vars.SKILL_JSON.getJSONObject(name());
 
@@ -32,15 +35,36 @@ public enum Skill implements Pickup {
         effect = Effect.valueOf(json.getString("effect"));
         animation = "TODO"; // TODO
         element = Element.valueOf(json.getString("element"));
-        power = accuracy = cost = critrate = 0;
+        power = accuracy = cost = critrate = 0; // TODO
     }
 
     @Override
     public void pickup() {
         PlayerInventory.getInstance().addSkill(this);
     }
+
     @Override
     public String getSprite() {
         return spriteName;
+    }
+
+    public void useInGame() {
+        switch (this) {
+            case SKILL_WEAK_HEAL:
+                UIScene.getPauseUI().openDialog("Note: unimplemented.");
+                break;
+            default:
+                throw new IllegalStateException("Attempted to use skill "+this+" in overworld, but it has no defined action. Effect: "+effect);
+        }
+    }
+
+    public void useInBattle(Fighter... targets) {
+        switch (this) {
+            case SKILL_WEAK_HEAL:
+                UIScene.getBattleUI().openDialog("Note: unimplemented.");
+                break;
+            default:
+                throw new IllegalStateException("Attempted to use skill "+this+" in battle, but it has no defined action. Effect: "+effect);
+        }
     }
 }

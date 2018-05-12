@@ -5,9 +5,10 @@ import mote4.scenegraph.target.FBO;
 import mote4.util.texture.TextureMap;
 import nullset.battle.Battle;
 import nullset.room.Room;
-import nullset.rpg.Enemy;
+import nullset.battle.Enemy;
 import nullset.scenes.BattleScene;
 import nullset.scenes.GameScene;
+import nullset.scenes.PostScene;
 import nullset.scenes.UIScene;
 
 import java.util.List;
@@ -25,7 +26,7 @@ public class RootLayer extends Layer {
 
     ////////////
 
-    enum GameState {
+    public enum GameState {
         TITLE,
         INGAME,
         BATTLE;
@@ -84,6 +85,7 @@ public class RootLayer extends Layer {
         lastW = w;//width;
         lastH = Vars.SCENE_H;//height;
         super.framebufferResized(lastW, lastH);
+        PostScene.getInstance().internalResResized(lastW,lastH);
 
         if (sceneFBO != null)
             sceneFBO.destroy();
@@ -98,6 +100,14 @@ public class RootLayer extends Layer {
         sceneFBO.destroy();
         super.destroy();
     }
+
+    public int getSceneWidth() { return lastW; }
+
+    public GameState getCurrentState() {
+        return currentState;
+    }
+
+    // These are the methods to use for loading different game states
 
     public void loadTitleScreen() {
         flagStateChange(TITLE);

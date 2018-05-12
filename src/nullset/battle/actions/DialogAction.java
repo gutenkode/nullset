@@ -4,13 +4,25 @@ import nullset.scenes.UIScene;
 import nullset.ui.dialogbehavior.TextDialogBehavior;
 
 public class DialogAction implements Action {
+
+    private TextDialogBehavior behavior;
+
+    public DialogAction(String text) {
+        behavior = new TextDialogBehavior(text);
+    }
+
+    @Override
+    public void start() {
+        UIScene.getBattleUI().openDialog(behavior);
+    }
+
     @Override
     public void act() {
-        UIScene.getBattleUI().openDialog(new TextDialogBehavior("This is a DialogAction."));
+
     }
 
     @Override
     public boolean isDone() {
-        return false;
+        return !behavior.isOpen();
     }
 }

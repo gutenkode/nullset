@@ -1,12 +1,12 @@
 package nullset.ui.menubehavior;
 
 import nullset.battle.Battle;
-import nullset.battle.actions.ItemAction;
 import nullset.battle.actions.PlayerChoiceAction;
+import nullset.battle.actions.SkillAction;
 import nullset.battle.fighters.Fighter;
 import nullset.main.RootLayer;
-import nullset.rpg.Item;
 import nullset.rpg.PlayerInventory;
+import nullset.rpg.Skill;
 import nullset.ui.dialogbehavior.TextDialogBehavior;
 
 import java.util.List;
@@ -15,15 +15,15 @@ import static nullset.main.RootLayer.GameState.BATTLE;
 import static nullset.main.RootLayer.GameState.INGAME;
 import static nullset.rpg.AttribEnums.Effect.NONE;
 
-public class InventoryMenuBehavior extends MenuBehavior {
+public class SkillMenuBehavior extends MenuBehavior {
 
-    public InventoryMenuBehavior() {
-        title = "Inventory";
+    public SkillMenuBehavior() {
+        title = "Skills";
 
-        List<Item> items = PlayerInventory.getInstance().getItems();
-        elements = new String[items.size()+1];
+        List<Skill> skills = PlayerInventory.getInstance().getSkills();
+        elements = new String[skills.size()+1];
         for (int i = 0; i < elements.length-1; i++) {
-            elements[i] = items.get(i).itemName;
+            elements[i] = skills.get(i).skillName;
         }
         elements[elements.length-1] = "Back";
     }
@@ -35,15 +35,15 @@ public class InventoryMenuBehavior extends MenuBehavior {
                 onClose();
                 break;
             default:
-                Item i = PlayerInventory.getInstance().getItems().get(cursorPos);
-                if (RootLayer.getInstance().getCurrentState() == INGAME && i.ingameEffect != NONE)
+                Skill s = PlayerInventory.getInstance().getSkills().get(cursorPos);
+                if (RootLayer.getInstance().getCurrentState() == INGAME && s.effect != NONE)
                 {
-                    i.useInGame();
+                    s.useInGame();
                 }
-                else if (RootLayer.getInstance().getCurrentState() == BATTLE && i.battleEffect != NONE)
+                else if (RootLayer.getInstance().getCurrentState() == BATTLE && s.effect != NONE)
                 {
-                    // TODO handle different types of targeting for items
-                    handler.openMenu(new TargetSelectBehavior(this::itemCallback, false,false,true));
+                    // TODO handle different types of targeting for skills
+                    handler.openMenu(new TargetSelectBehavior(this::skillCallback, false,true,false));
                 }
                 else
                     handler.openDialog("You can't use this here.");
@@ -56,14 +56,14 @@ public class InventoryMenuBehavior extends MenuBehavior {
         if (cursorPos == elements.length-1)
             handler.closeFlavorText();
         else {
-            Item i = PlayerInventory.getInstance().getItems().get(cursorPos);
-            handler.openFlavorText(i.description);
+            Skill s = PlayerInventory.getInstance().getSkills().get(cursorPos);
+            handler.openFlavorText(s.description);
         }
     }
 
-    private void itemCallback(Fighter... fighters) {
-        Item i = PlayerInventory.getInstance().getItems().get(cursorPos);
-        Battle.getCurrent().addAction(new ItemAction(i, fighters));
+    private void skillCallback(Fighter... fighters) {
+        Skill s = PlayerInventory.getInstance().getSkills().get(cursorPos);
+        Battle.getCurrent().addAction(new SkillAction(s, fighters));
         PlayerChoiceAction.getInstance().markAsDone();
     }
 }

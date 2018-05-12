@@ -1,5 +1,6 @@
 package nullset.ui.uielement;
 
+import mote4.scenegraph.Window;
 import mote4.util.matrix.TransformationMatrix;
 import mote4.util.shader.Uniform;
 import mote4.util.texture.TextureMap;
@@ -19,7 +20,7 @@ public class MenuElement extends UIElement {
     private static Mesh cursor;
     static {
         FontUtils.useMetric("font_ui");
-        cursor = FontUtils.createString(">",0,0,UI_SCALE,UI_SCALE);
+        cursor = FontUtils.createString(""+(char)('~'+1),0,0,UI_SCALE,UI_SCALE);
     }
 
     private Mesh border;
@@ -27,6 +28,7 @@ public class MenuElement extends UIElement {
     private MenuBehavior behavior;
 
     public MenuElement(MenuBehavior b) {
+        b.setCursorPos(0);
         behavior = b;
         strings = new Mesh[b.getNumElements()+1];
         FontUtils.useMetric("font_ui");
@@ -81,7 +83,8 @@ public class MenuElement extends UIElement {
         // render cursor
         model.push();
         {
-            model.translate(0, UI_SCALE * (1 + behavior.getCursorPos()));
+            int cursorX = (int)(Window.time()*13)%7;
+            model.translate(cursorX, UI_SCALE * (1 + behavior.getCursorPos()));
             model.bind();
             cursor.render();
         }

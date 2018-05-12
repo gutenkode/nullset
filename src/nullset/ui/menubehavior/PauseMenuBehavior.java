@@ -14,7 +14,7 @@ public class PauseMenuBehavior extends MenuBehavior {
                 handler.openMenu(new InventoryMenuBehavior());
                 break;
             case "Skills":
-                //
+                handler.openMenu(new SkillMenuBehavior());
                 break;
             case "Options":
             	handler.openMenu(new OptionsMenuBehavior());

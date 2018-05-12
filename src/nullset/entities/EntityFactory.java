@@ -1,5 +1,6 @@
 package nullset.entities;
 
+import nullset.battle.Enemy;
 import nullset.entities.components.behaviors.*;
 import nullset.entities.components.colliders.*;
 import nullset.entities.components.renderers.*;

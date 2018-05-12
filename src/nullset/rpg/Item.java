@@ -1,10 +1,16 @@
 package nullset.rpg;
 
+import nullset.battle.fighters.Fighter;
 import nullset.main.Vars;
+import nullset.scenes.UIScene;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import static nullset.rpg.AttribEnums.*;
+import static nullset.rpg.AttribEnums.ItemType.CONSUMABLE;
+import static nullset.rpg.AttribEnums.Stat.HP;
+import static nullset.rpg.AttribEnums.Stat.MP;
+import static nullset.rpg.AttribEnums.Stat.SP;
 
 public enum Item implements Pickup {
 
@@ -19,6 +25,7 @@ public enum Item implements Pickup {
     public final ItemType itemType;
     public final Effect ingameEffect, battleEffect;
     public final int[] attribs;
+
     Item() {
         JSONObject json = Vars.ITEM_JSON.getJSONObject(name());
 
@@ -41,8 +48,50 @@ public enum Item implements Pickup {
     public void pickup() {
         PlayerInventory.getInstance().addItem(this);
     }
+
     @Override
     public String getSprite() {
         return spriteName;
+    }
+
+    public void useInGame() {
+        switch (this) {
+            case ITEM_HP_HEAL:
+            case ITEM_SP_HEAL:
+            case ITEM_MP_HEAL:
+                UIScene.getPauseUI().openDialog("Note: unimplemented.");
+                break;
+            default:
+                throw new IllegalStateException("Attempted to use item "+this+" in overworld, but it has no defined action. Ingame effect: "+ingameEffect);
+        }
+    }
+
+    public void useInBattle(Fighter... targets) {
+        switch (this) {
+            case ITEM_HP_HEAL:
+                for (Fighter f : targets)
+                    f.heal(HP, attribs[0]); // healing amount is stored in the attribs array
+                break;
+            case ITEM_SP_HEAL:
+                for (Fighter f : targets)
+                    f.heal(SP, attribs[0]);
+                break;
+            case ITEM_MP_HEAL:
+                for (Fighter f : targets)
+                    f.heal(MP, attribs[0]);
+                break;
+            case ITEM_BOMB:
+            case ITEM_BUFF_ATK:
+                UIScene.getBattleUI().openDialog("Note: unimplemented.");
+                break;
+            default:
+                throw new IllegalStateException("Attempted to use item "+this+" in battle, but it has no defined action. Battle effect: "+battleEffect);
+        }
+    }
+
+    public void consume() {
+        if (itemType != CONSUMABLE)
+            throw new IllegalStateException("Cannot consume a non-consumable item.");
+        PlayerInventory.getInstance().removeItem(this);
     }
 }

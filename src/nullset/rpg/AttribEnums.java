@@ -5,22 +5,36 @@ package nullset.rpg;
  */
 public class AttribEnums {
     public enum Element { // standard spread of elements in an RPG
-        PHYS, BOMB,
+        PHYS,
         FIRE, ICE, ELEC,
         LIGHT, DARK,
         PSI, ACID,
-        NONE;
+        NONE; // "colorless" element
+    }
+    public enum Resistance { // types of elemental resistances
+        N, // neutral
+        RES,
+        WEAK,
+        NULL
     }
     public enum ItemType { // key items are stored in a separate list and cannot be tossed
         KEY, CONSUMABLE;
     }
-    public enum Stats {
-        HEALTH, STAMINA, MANA;
+    public enum Stat {
+        HP, SP, MP, // standard health, stamina, mana
+        STR, VIT, // physical attack and defense
+        INT, WILL, // mental/magic attack and defense
+        AGI, RES // speed/accuracy, and resistance to status effects and debuffs
+    }
+    public enum Status { // status ailments
+        POISON,
+        FATIGUE
     }
     public enum Effect { // the types of effects an item, skill, or attack can have
-        HEAL_HP, HEAL_MP, HEAL_SP,
-        BUFF_ATK, BUFF_DEF, BUFF_SPD,
-        ATTACK, ATK_PERCENT, ATK_OHKO,
-        NONE, GIVE_STATUS, HEAL_STATUS;
+        ATTACK,
+        HEAL_HP, HEAL_SP, HEAL_MP,
+        BUFF,
+        STATUS,
+        NONE
     }
 }

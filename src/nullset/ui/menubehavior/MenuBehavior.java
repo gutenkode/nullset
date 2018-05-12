@@ -15,7 +15,6 @@ public abstract class MenuBehavior {
 
     public MenuBehavior() {
         cursorPos = 0;
-        onHighlight(cursorPos);
     }
 
     /**
@@ -60,16 +59,22 @@ public abstract class MenuBehavior {
         while (cursorPos < 0)
             cursorPos += elements.length;
         cursorPos %= elements.length;
-        onHighlight(cursorPos);
+        onHighlight();
     }
 
     public int getCursorPos() { return cursorPos; }
 
     /**
-     * Called when the cursor is hovering on an element.
-     * @param index 
+     * Refreshes the content of the menu. Should be called once every time a menu is made active.
      */
-    private void onHighlight(int index) {}
+    public void refresh() {
+        setCursorPos(getCursorPos());
+    }
+
+    /**
+     * Called when the cursor is hovering on an element.
+     */
+    protected void onHighlight() {}
 
     public void onClose() {
         handler.closeMenu(this);

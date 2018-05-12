@@ -10,8 +10,6 @@ import mote4.util.vertex.builder.StaticMeshBuilder;
 import mote4.util.vertex.mesh.MeshMap;
 import nullset.scenes.PostScene;
 
-import java.io.InputStream;
-
 import static org.lwjgl.glfw.GLFW.GLFW_DONT_CARE;
 import static org.lwjgl.glfw.GLFW.glfwSetWindowSizeLimits;
 import static org.lwjgl.opengl.GL11.*;
@@ -40,7 +38,7 @@ public class Main{
         loadResources();
 
         Window.addLayer(RootLayer.getInstance());
-        Window.addScene(new PostScene());
+        Window.addScene(PostScene.getInstance());
         Window.loop();
     }
 
@@ -66,6 +64,7 @@ public class Main{
         MeshMap.add(StaticMeshBuilder.constructVAOFromOBJ("pipe", false), "pipe");
         MeshMap.add(StaticMeshBuilder.constructVAOFromOBJ("hexahedron", false), "hexahedron");
 
+        FontUtils.loadMetric("font/6px/6px_metric","font_6px");
         FontUtils.loadMetric("font/misterpixel/misterpixel_metric","font_ui");
     }
 }

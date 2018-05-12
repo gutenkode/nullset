@@ -2,8 +2,8 @@
     "ENEMY_SLIME": {
         "enemyName": "Slime",
         "spriteName": "entity_battle_slime",
-        "encounter": "A Slime draws near!",
-        "death": "The Slime melts into a puddle.",
+        "encounterString": "A Slime draws near!",
+        "deathString": "The Slime melts into a puddle.",
         "background": "red",
         "music": "battle_normal",
         "spriteFrames": [
@@ -12,28 +12,31 @@
             16,
             12
         ],
-        "stats": {
-            "health": 60,
-            "attack": 10,
-            "defense": 10,
-            "magic": 10
+        "base": {
+            "HP": 50,
+            "STR": 10,
+            "VIT": 5,
+            "INT": 0,
+            "WILL": 5,
+            "AGI": 5,
+            "RES": 20
         },
-        "element": {
+        "resistance": {
             "PHYS": "N",
-            "BOMB": "N",
             "FIRE": "RES",
-            "ELEC": "N",
             "ICE": "WEAK",
-            "ACID": "NULL",
-            "DARK": "N",
-            "LIGHT": "N"
+            "ELEC": "N",
+            "LIGHT": "WEAK",
+            "DARK": "RES",
+            "PSI": "WEAK",
+            "ACID": "NULL"
         }
     },
     "ENEMY_NOISE": {
         "enemyName": "Noise",
         "spriteName": "entity_battle_noise",
-        "encounter": "The Noise approaches.",
-        "death": "The Noise flickers out of existence.",
+        "encounterString": "The Noise approaches.",
+        "deathString": "The Noise flickers out of existence.",
         "background": "red",
         "music": "battle_normal",
         "spriteFrames": [
@@ -41,15 +44,17 @@
             5,
             5
         ],
-        "stats": {
-            "health": 64,
-            "attack": 10,
-            "defense": 5,
-            "magic": 10
+        "base": {
+            "HP": 70,
+            "STR": 15,
+            "VIT": 0,
+            "INT": 15,
+            "WILL": 0,
+            "AGI": 15,
+            "RES": 5
         },
-        "element": {
+        "resistance": {
             "PHYS": "NULL",
-            "BOMB": "WEAK",
             "FIRE": "RES",
             "ELEC": "RES",
             "ICE": "RES",
@@ -61,23 +66,25 @@
     "ENEMY_BOSS": {
         "enemyName": "Boss",
         "spriteName": "entity_battle_boss",
-        "encounter": "The last battle.",
-        "death": "...",
+        "encounterString": "The last battle.",
+        "deathString": "...",
         "background": "gray",
         "music": "battle_boss",
         "spriteFrames": [
             80,
             30
         ],
-        "stats": {
-            "health": 400,
-            "attack": 20,
-            "defense": 15,
-            "magic": 10
+        "base": {
+            "HP": 400,
+            "STR": 20,
+            "VIT": 15,
+            "INT": 10,
+            "WILL": 8,
+            "AGI": 10,
+            "RES": 10
         },
-        "element": {
+        "resistance": {
             "PHYS": "N",
-            "BOMB": "N",
             "FIRE": "WEAK",
             "ELEC": "N",
             "ICE": "N",

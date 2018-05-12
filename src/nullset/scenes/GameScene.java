@@ -31,7 +31,7 @@ public class GameScene implements Scene {
         Room.getCurrent().applyViewPosition(trans.view);
 
         Room.getCurrent().render(trans);
-        Room.getCurrent().renderColliders(trans);
+        //Room.getCurrent().renderColliders(trans);
     }
 
     @Override

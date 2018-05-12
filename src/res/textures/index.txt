@@ -6,8 +6,6 @@ ui/title			ui_title
 ui/titlebg			ui_titlebg
 ui/scalablemenu			ui_scalablemenu
 ui/scalablemenu_blur		ui_scalablemenu_blur
-ui/arrow_cursor			ui_cursor
-ui/square_cursor		ui_square_cursor
 ui/statbars			ui_statbars
 
 ui/battle_bg/red		ui_bg_red

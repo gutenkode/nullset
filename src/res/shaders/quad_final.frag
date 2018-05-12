@@ -2,7 +2,7 @@
 #version 330 core
 
 // these are removed by the source loader as needed
-#define CRT
+//#define CRT
 #define QUILEZ
 
 #ifdef CRT
@@ -83,7 +83,7 @@ void main()
 		//FragColor.xyz *= mod(texCoord.y*texSize.y, 1.0); // mathematical scanlines
 	#endif
 
-	FragColor += texture(tex_bloom, texCoord) * bloomCoef; // bloom
+	//FragColor += texture(tex_bloom, texCoord) * bloomCoef; // bloom
 
 	FragColor.rgb *= colorMult; // final global multiply, used for fading in/out
 

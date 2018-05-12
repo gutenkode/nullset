@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static nullset.rpg.Item.*;
+import static nullset.rpg.Skill.*;
+import static nullset.rpg.Mod.*;
 
 public class PlayerInventory {
 
@@ -24,11 +26,22 @@ public class PlayerInventory {
         items = new ArrayList<>();
         skills = new ArrayList<>();
         mods = new ArrayList<>();
+
         items.add(ITEM_KEYCARD);
+        items.add(ITEM_HP_HEAL);
+        items.add(ITEM_BOMB);
+        items.add(ITEM_BUFF_ATK);
+        skills.add(SKILL_WEAK_FIRE);
+        skills.add(SKILL_WEAK_LIGHT);
+        skills.add(SKILL_WEAK_PHYS);
+        mods.add(MOD_DAMAGE_BOOST);
     }
 
     public void addItem(Item item) {
         items.add(item);
+    }
+    public void removeItem(Item item) {
+        items.remove(item);
     }
     public void addSkill(Skill skill) {
         skills.add(skill);

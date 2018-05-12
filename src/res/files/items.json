@@ -42,7 +42,7 @@
     },
     "ITEM_MP_HEAL": {
         "itemName": "Mana Hypo",
-        "description": "...",
+        "description": "A blue syringe filled with blue glowing liquid.\nRestores a little mana.",
         "spriteName": "item_syringe",
         "itemType": "CONSUMABLE",
         "ingameEffect": "HEAL_MP",
@@ -51,7 +51,7 @@
     },
     "ITEM_SP_HEAL": {
         "itemName": "Energy Drink",
-        "description": "...",
+        "description": "A popular brand of energy drink,\nlinked to several heart conditions.\nRestores a lot of stamina.",
         "spriteName": "item_drink",
         "itemType": "CONSUMABLE",
         "ingameEffect": "HEAL_SP",
@@ -69,11 +69,11 @@
     },
     "ITEM_BUFF_ATK": {
         "itemName": "Adrenaline Hypo",
-        "description": "...",
+        "description": "A syringe filled with pure adrenaline.\nTemporarily boosts your strength,\nbut cuts your ability to concentrate.",
         "spriteName": "item_hypo",
         "itemType": "CONSUMABLE",
         "ingameEffect": "NONE",
-        "battleEffect": "BUFF_ATK",
+        "battleEffect": "BUFF",
         "attribs": [1]
     }
 }

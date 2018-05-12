@@ -30,7 +30,7 @@ public class UIScene implements Scene {
     public static UIScene createBattleUI() {
         if (battleScene == null) {
             battleScene = new UIScene();
-            battleScene.handler.openMenu(new BattleMenuBehavior());
+            //battleScene.handler.openMenu(new BattleMenuBehavior());
         }
         return battleScene;
     }

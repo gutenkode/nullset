@@ -1,15 +1,19 @@
 package nullset.ui.dialogbehavior;
 
-import nullset.ui.UIHandler;
-
 public class TextDialogBehavior extends DialogBehavior {
+
+    private boolean isOpen;
 
     public TextDialogBehavior(String s) {
         text = s;
+        isOpen = true;
     }
 
     @Override
     public void onAction() {
-        handler.closeDialog();
+        handler.closeDialog(this);
+        isOpen = false;
     }
+
+    public boolean isOpen() { return isOpen; }
 }

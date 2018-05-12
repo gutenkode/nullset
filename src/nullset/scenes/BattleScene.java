@@ -9,9 +9,11 @@ import static org.lwjgl.opengl.GL11.*;
 public class BattleScene implements Scene {
 
     private Transform trans;
+    private BattleBackground background;
 
     public BattleScene() {
         trans = new Transform(true);
+        background = new BattleBackground();
     }
 
     @Override
@@ -24,13 +26,15 @@ public class BattleScene implements Scene {
         glDisable(GL_DEPTH_TEST);
         glClear(GL_COLOR_BUFFER_BIT);
 
+        trans.model.setIdentity();
+        background.render(time);
         Battle.getCurrent().render(trans);
     }
 
     @Override
     public void framebufferResized(int width, int height) {
+        background.framebufferResized(width, height);
         trans.projection.setOrthographic(0,0,width,height,-1,1);
-        //trans.projection.setPerspective(width,height,.1f,100f,60f);
     }
 
     @Override

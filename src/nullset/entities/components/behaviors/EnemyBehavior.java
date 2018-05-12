@@ -2,7 +2,7 @@ package nullset.entities.components.behaviors;
 
 import nullset.entities.Entity;
 import nullset.main.RootLayer;
-import nullset.rpg.Enemy;
+import nullset.battle.Enemy;
 
 import java.util.Collections;
 
@@ -26,7 +26,7 @@ public class EnemyBehavior extends Behavior {
         if (triggered)
             return;
         if (e.behavior instanceof PlayerBehavior) {
-            RootLayer.getInstance().loadBattle(Collections.singletonList(enemy));
+            RootLayer.getInstance().loadBattle(Collections.nCopies(3,enemy));
             entity.ROOM.removeEntity(entity);
             triggered = true;
         }
