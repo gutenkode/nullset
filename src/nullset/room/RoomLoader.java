@@ -58,9 +58,9 @@ public class RoomLoader {
         RoomLoader.fileName = fileName;
         mapWidth = mapHeight = -1;
 
-        BufferedReader bf = FileIO.getBufferedReader("/res/maps/"+levelPath+fileName+FILE_EXTENSION);
         ArrayList<String> file = new ArrayList<>();
         try {
+            BufferedReader bf = FileIO.getBufferedReader("/res/maps/"+levelPath+fileName+FILE_EXTENSION);
             String inString;
             while ((inString = bf.readLine()) != null)
                 file.add(inString);

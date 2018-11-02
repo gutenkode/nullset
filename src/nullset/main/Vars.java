@@ -3,6 +3,8 @@ package nullset.main;
 import mote4.util.FileIO;
 import org.json.JSONObject;
 
+import java.io.IOException;
+
 public class Vars {
 
     public static final int
@@ -14,11 +16,15 @@ public class Vars {
             DEFAULT_TILESET = "tileset_brick";
 
 
-    public static final JSONObject ITEM_JSON, SKILL_JSON, MOD_JSON, ENEMY_JSON;
-    static {
-        ITEM_JSON = new JSONObject(FileIO.getString("/res/files/items.json"));
-        SKILL_JSON = new JSONObject(FileIO.getString("/res/files/skills.json"));
-        MOD_JSON = new JSONObject(FileIO.getString("/res/files/mods.json"));
-        ENEMY_JSON = new JSONObject(FileIO.getString("/res/files/enemies.json"));
+    public static JSONObject ITEM_JSON, SKILL_JSON, MOD_JSON, ENEMY_JSON;
+    public static void init() {
+        try {
+            ITEM_JSON = new JSONObject(FileIO.getString("/res/files/items.json"));
+            SKILL_JSON = new JSONObject(FileIO.getString("/res/files/skills.json"));
+            MOD_JSON = new JSONObject(FileIO.getString("/res/files/mods.json"));
+            ENEMY_JSON = new JSONObject(FileIO.getString("/res/files/enemies.json"));
+        } catch (IOException e) {
+
+        }
     }
 }

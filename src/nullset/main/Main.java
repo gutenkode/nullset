@@ -44,15 +44,7 @@ public class Main{
 
     private static void loadResources()
     {
-        // TODO fix this mess
-        // allow the moteEngine module to read the packages in this module
-        for (String pn : Main.class.getModule().getPackages())
-            Main.class.getModule().addOpens(pn, FileIO.class.getModule());
-        // specify the module to load resources from
-        // since the load operation is done in the FileIO class in the moteEngine module, the moteEngine module needs to be able to read this project's module AND have a reference to it to find the resources
-        FileIO.setResourceModule(Main.class.getModule());
-
-        /////////////////
+        Vars.init();
 
         TextureMap.loadIndex("index.txt");
         ShaderUtils.loadIndex("index.txt");
@@ -64,7 +56,7 @@ public class Main{
         MeshMap.add(StaticMeshBuilder.constructVAOFromOBJ("pipe", false), "pipe");
         MeshMap.add(StaticMeshBuilder.constructVAOFromOBJ("hexahedron", false), "hexahedron");
 
-        FontUtils.loadMetric("font/6px/6px_metric","font_6px");
-        FontUtils.loadMetric("font/misterpixel/misterpixel_metric","font_ui");
+        FontUtils.loadMetric("font/6px/6px","font_6px");
+        FontUtils.loadMetric("font/misterpixel/misterpixel","font_ui");
     }
 }
